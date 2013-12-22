@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives | Ilan Frumer</title>
+  <meta name="author" content="Ilan Frumer">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Ilan Frumer"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Ilan Frumer" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Ilan Frumer</a></h1>
+  <h2><a href="/">Web Developer</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About Me</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">Archives</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2013-12-22T08:00:00.000Z"><a href="/blog/sublime-text-3-build-3059-upgrade/">Dec 22 2013</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/blog/sublime-text-3-build-3059-upgrade/">Sublime text 3 build 3059 upgrade</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Last week a new build (<a href="http://www.sublimetext.com/blog/articles/sublime-text-3-build-3059" target="_blank">3059</a>) of sublime text 3 was released.</p>
+<p>After only one day it was available through the <a href="https://launchpad.net/~webupd8team/+archive/sublime-text-3" target="_blank">“WebUpd8 PPA”</a>.</p>
+<p>But trying to upgrade (<code>apt-get upgrade</code>) was not working as I expected.<br>I even tried to remove it and reinstall it but nothing helped.</p>
+<p>So after a quick research I found out that <code>apt-cache policy</code> prints out detailed information about the priority selection of a named package.</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>apt-cache policy sublime-text-installer
+
+sublime-text-installer:
+  Installed: <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span>
+  Candidate: <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span>
+  Version table:
+     <span class="number">3059</span>-<span class="number">2</span>~webupd8~<span class="number">0</span> <span class="number">0</span>
+        <span class="number">500</span> http://ppa<span class="preprocessor">.launchpad</span><span class="preprocessor">.net</span>/webupd8team/sublime-text-<span class="number">3</span>/ubuntu/ raring/main amd64 Packages
+ *** <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span> <span class="number">0</span>
+        <span class="number">700</span> http://free<span class="preprocessor">.nchc</span><span class="preprocessor">.org</span><span class="preprocessor">.tw</span>/linuxmint/packages/ olivia/import amd64 Packages
+        <span class="number">100</span> /var/lib/dpkg/status
+</pre></td></tr></table></figure>
+
+<p>As you can see, the older build resolved to be the install candidate because it has higher priority (700) than the new one (500).</p>
+<p>So, to force apt-get updating sublime I had to explicitly specify the new version.</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install sublime-text-installer=<span class="number">3059</span>-<span class="number">2</span>~webupd8~<span class="number">0</span>
+subl -v
+Sublime Text Build <span class="number">3059</span>
+</pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+  
+
+  <nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:ilanfrumer.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/Sublime Text/">Sublime Text</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2013 Ilan Frumer
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'ilanfrumer';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

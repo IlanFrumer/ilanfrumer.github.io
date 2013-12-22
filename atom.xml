@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Ilan Frumer]]></title>
+  <subtitle><![CDATA[Web Developer]]></subtitle>
+  <link href="http://ilanfrumer.com/atom.xml" rel="self"/>
+  <link href="http://ilanfrumer.com"/>
+  <updated>2013-12-22T10:56:15.394Z</updated>
+  <id>http://ilanfrumer.com/</id>
+  <author>
+    <name><![CDATA[Ilan Frumer]]></name>
+    <email><![CDATA[ilanfrumer@gmail.com]]></email>
+  </author>
+  <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Sublime text 3 build 3059 upgrade]]></title>
+    <link href="http://ilanfrumer.com/blog/sublime-text-3-build-3059-upgrade/"/>
+    <id>http://ilanfrumer.com/blog/sublime-text-3-build-3059-upgrade/</id>
+    <published>2013-12-22T08:00:00.000Z</published>
+    <updated>2013-12-22T10:02:51.000Z</updated>
+    <content type="html"><![CDATA[<p>Last week a new build (<a href="http://www.sublimetext.com/blog/articles/sublime-text-3-build-3059" target="_blank">3059</a>) of sublime text 3 was released.</p>
+<p>After only one day it was available through the <a href="https://launchpad.net/~webupd8team/+archive/sublime-text-3" target="_blank">“WebUpd8 PPA”</a>.</p>
+<p>But trying to upgrade (<code>apt-get upgrade</code>) was not working as I expected.<br>I even tried to remove it and reinstall it but nothing helped.</p>
+<p>So after a quick research I found out that <code>apt-cache policy</code> prints out detailed information about the priority selection of a named package.</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>apt-cache policy sublime-text-installer
+
+sublime-text-installer:
+  Installed: <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span>
+  Candidate: <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span>
+  Version table:
+     <span class="number">3059</span>-<span class="number">2</span>~webupd8~<span class="number">0</span> <span class="number">0</span>
+        <span class="number">500</span> http://ppa<span class="preprocessor">.launchpad</span><span class="preprocessor">.net</span>/webupd8team/sublime-text-<span class="number">3</span>/ubuntu/ raring/main amd64 Packages
+ *** <span class="number">3047</span>-<span class="number">2</span>~webupd8~<span class="number">2</span> <span class="number">0</span>
+        <span class="number">700</span> http://free<span class="preprocessor">.nchc</span><span class="preprocessor">.org</span><span class="preprocessor">.tw</span>/linuxmint/packages/ olivia/import amd64 Packages
+        <span class="number">100</span> /var/lib/dpkg/status
+</pre></td></tr></table></figure>
+
+<p>As you can see, the older build resolved to be the install candidate because it has higher priority (700) than the new one (500).</p>
+<p>So, to force apt-get updating sublime I had to explicitly specify the new version.</p>
+<figure class="highlight lang-sh"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>su<span class="operator"><span class="keyword">do</span> apt-<span class="keyword">get</span> install sublime-text-installer=<span class="number">3059</span>-<span class="number">2</span>~webupd8~<span class="number">0</span>
+subl -v
+Sublime Text Build <span class="number">3059</span>
+</pre></td></tr></table></figure>
+
+]]></content>
+    <category scheme="http://ilanfrumer.com/tags/Linux/" term="Linux"/>
+    <category scheme="http://ilanfrumer.com/tags/Sublime Text/" term="Sublime Text"/>
+  </entry>
+</feed>

@@ -1,0 +1,46 @@
+date: 2013-12-23 12:50:46.316
+argv: node /usr/bin/hexo s
+os: Linux 3.8.0-34-generic linux x64
+version:
+  hexo: 2.3.0
+  http_parser: 1.0
+  node: 0.10.24
+  v8: 3.14.5.9
+  ares: 1.9.0-DEV
+  uv: 0.10.21
+  zlib: 1.2.3
+  modules: 11
+  openssl: 1.0.1e
+---
+
+[debug] 12:50:45.703 Configuration file load successfully
+[debug] 12:50:45.707 Plugin loaded successfully: hexo-generator-feed
+[debug] 12:50:45.709 Plugin loaded successfully: hexo-generator-sitemap
+[debug] 12:50:45.941 Plugin loaded successfully: hexo-renderer-jade
+[debug] 12:50:45.941 Version info checked successfully
+[debug] 12:50:45.942 Loading the database...
+[debug] 12:50:46.154 Theme layout loaded
+[debug] 12:50:46.155 Start watching theme layout...
+[debug] 12:50:46.164 Processed: CNAME
+[debug] 12:50:46.171 Processed: favicon.png
+[debug] 12:50:46.205 Theme source loaded
+[debug] 12:50:46.207 Theme configuration loaded
+[debug] 12:50:46.208 Start watching theme source...
+[debug] 12:50:46.281 Theme i18n loaded
+[debug] 12:50:46.290 Processed: _posts/sublime-text-3-build-3059-upgrade.md
+[debug] 12:50:46.294 Processed: about/index.md
+[debug] 12:50:46.294 Processed: links/index.md
+[debug] 12:50:46.295 Processed: node-modules/index.md
+[debug] 12:50:46.310 Cache saved
+[error] 12:50:46.314 Error: listen EADDRINUSE
+Error: listen EADDRINUSE
+    at errnoException (net.js:901:11)
+    at Server._listen2 (net.js:1039:14)
+    at listen (net.js:1061:10)
+    at Server.listen (net.js:1127:5)
+    at Function.app.listen (/usr/lib/node_modules/hexo/node_modules/express/lib/application.js:533:24)
+    at /usr/lib/node_modules/hexo/lib/plugins/console/server/index.js:163:9
+    at /usr/lib/node_modules/hexo/lib/post/load.js:38:73
+    at /usr/lib/node_modules/hexo/node_modules/watch/main.js:100:5
+    at /usr/lib/node_modules/hexo/node_modules/watch/main.js:54:23
+    at Object.oncomplete (fs.js:107:15)

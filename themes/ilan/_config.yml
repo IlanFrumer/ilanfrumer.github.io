@@ -1,0 +1,27 @@
+menu:
+  Home: /
+  Archives: /archives
+  Links: /links
+  About Me: /about
+
+widgets:
+- search
+- category
+- tag
+
+excerpt_link: Read More
+
+addthis:
+  enable: false
+  pubid:
+  facebook: false
+  twitter: false
+  google: false
+  pinterest: false
+
+fancybox: true
+
+google_analytics: UA-46672702-1
+rss:
+
+comment_provider: disqus

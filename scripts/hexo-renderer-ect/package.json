@@ -1,0 +1,11 @@
+{
+  "name": "hexo-renderer-ect",
+  "version": "0.0.1",
+  "main": "index",
+  "engines": {
+    "hexo": ">= 1.0.0"
+  },
+  "dependencies": {
+    "ect": "*"
+  }
+}
